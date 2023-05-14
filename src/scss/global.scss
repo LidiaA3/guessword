@@ -1,0 +1,12 @@
+$color-dark: #1c1c1e;
+$color-light: #f3f3f3;
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-size: 1.8rem;
+    color: $color-dark;
+    background-color: $color-light;
+}
