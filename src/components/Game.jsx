@@ -60,7 +60,10 @@ function Game () {
         <>
             <h4>Lives {lives}</h4>
             <h4>WrongLetters {wrongLetters}</h4>
-            <h4>Word to guess {wordToGuess}</h4>
+            <h4>Word to guess:</h4>
+            <div className="word">
+                {wordToGuess.map((item) => <p>{item}</p>)}
+            </div>
             <Keyboard handleLetter={handleLetter}/>
         </>
     );

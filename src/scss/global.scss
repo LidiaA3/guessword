@@ -10,3 +10,8 @@ body {
     color: $color-dark;
     background-color: $color-light;
 }
+
+.word {
+    display: flex;
+    gap: .5rem;
+}
