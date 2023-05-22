@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import Keyboard from "./Keyboard";
+import FillHeart from "./icons/FillHeart";
+import EmptyHeart from "./icons/EmptyHeart";
 
 function Game () {
 
@@ -56,9 +58,22 @@ function Game () {
         }
     }
 
+    // useEffect(() => {
+    //     for(let i = 1; i < 6; i++) {
+    //         if (lives < i) {
+    //             return <FillHeart />
+    //         } else {
+    //             return <EmptyHeart />
+    //         }
+    //     }
+    // }, [lives])
+
     return (
         <>
             <h4>Lives {lives}</h4>
+            <div className="lives">
+                {}
+            </div>
             <h4>WrongLetters {wrongLetters}</h4>
             <h4>Word to guess:</h4>
             <div className="word">
