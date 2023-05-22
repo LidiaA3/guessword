@@ -49,7 +49,7 @@ function Game () {
                     wordToGuess[index] = l;
                 }
             })
-            setWordToGuess(wordToGuess);
+            setWordToGuess([...wordToGuess]);
             console.log('Now:', wordToGuess);
         } else {
             console.log('Wrong letter');
@@ -58,21 +58,11 @@ function Game () {
         }
     }
 
-    // useEffect(() => {
-    //     for(let i = 1; i < 6; i++) {
-    //         if (lives < i) {
-    //             return <FillHeart />
-    //         } else {
-    //             return <EmptyHeart />
-    //         }
-    //     }
-    // }, [lives])
-
     return (
         <>
             <h4>Lives {lives}</h4>
             <div className="lives">
-                {}
+                {new Array(6).fill('').map((item, index)=> lives > index ? <FillHeart /> : <EmptyHeart />)}
             </div>
             <h4>WrongLetters {wrongLetters}</h4>
             <h4>Word to guess:</h4>
