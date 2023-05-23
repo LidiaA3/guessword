@@ -41,6 +41,9 @@ function Game () {
     const [lives, setLives] = useState(6);
 
     function handleLetter(l) {
+        if (lives === 0 || !wordToGuess.includes('_')) {
+            return;
+        }
         console.log('Letter pressed:', l);
         if (wordSolved.includes(l)) {
             console.log('Letter is in');
@@ -59,18 +62,21 @@ function Game () {
     }
 
     return (
-        <>
-            <h4>Lives {lives}</h4>
-            <div className="lives">
-                {new Array(6).fill('').map((item, index)=> lives > index ? <FillHeart /> : <EmptyHeart />)}
-            </div>
-            <h4>WrongLetters {wrongLetters}</h4>
-            <h4>Word to guess:</h4>
-            <div className="word">
-                {wordToGuess.map((item) => <p>{item}</p>)}
-            </div>
-            <Keyboard handleLetter={handleLetter}/>
-        </>
+        <main className="game">
+            <section className="status">
+                <div className="lives">
+                    {new Array(6).fill('').map((item, index)=> lives > index ? <FillHeart /> : <EmptyHeart />)}
+                </div>
+                <div className="wrongLetters">
+                    <small className="wrongLetters__tittle">WrongLetters</small> 
+                    <p className="wrongLetters__section">{wrongLetters}</p>
+                </div>
+            </section>
+            <section className="word">
+                {wordToGuess.map((item) => <p className="word__letter">{item}</p>)}
+            </section>
+            <Keyboard handleLetter={handleLetter} />
+        </main>
     );
 }
 
