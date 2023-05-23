@@ -1,4 +1,4 @@
-function Key (props) {
+function Keyletter (props) {
     return (
         <>
             <button onClick={props.handleClick}>{props.text}</button>
@@ -6,4 +6,4 @@ function Key (props) {
     );
 }
 
-export default Key
+export default Keyletter

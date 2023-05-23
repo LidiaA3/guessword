@@ -1,4 +1,4 @@
-import Key from "./key";
+import Keyletter from "./Keyletter";
 
 function Keyboard (props) {
 
@@ -9,7 +9,7 @@ function Keyboard (props) {
             {keyboardLetters.map((line, i) => {
                 return <div className="keyboard__row" key={i}>
                     {line.map(letter => {
-                        return <Key text={letter} key={letter} handleClick={() => props.handleLetter(letter)} />
+                        return <Keyletter text={letter} key={letter} handleClick={() => props.handleLetter(letter)} />
                     })}
                 </div>
             })}
