@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Keyboard from "./Keyboard";
 import FillHeart from "./icons/FillHeart";
 import EmptyHeart from "./icons/EmptyHeart";
+import Popup from "./Popup";
 
 function Game () {
 
@@ -40,8 +41,17 @@ function Game () {
     const [wrongLetters, setWrongLetters] = useState([]);
     const [lives, setLives] = useState(6);
 
+    const [gameOver, setGameOver] = useState(false);
+    const [winner, setWinner] = useState('');
+
     function handleLetter(l) {
         if (lives === 0 || !wordToGuess.includes('_')) {
+            setGameOver(true);
+            if(lives === 0) {
+                setWinner(false);
+            } else {
+                setWinner(true);
+            }
             return;
         }
         console.log('Letter pressed:', l);
@@ -75,6 +85,7 @@ function Game () {
             <section className="word">
                 {wordToGuess.map((item) => <p className="word__letter">{item}</p>)}
             </section>
+            {gameOver && <Popup winner={winner} word={word} />}
             <Keyboard handleLetter={handleLetter} />
         </main>
     );
