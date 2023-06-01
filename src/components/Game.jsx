@@ -35,8 +35,6 @@ function Game () {
     }, [wordSolved])
 
     console.log(word);
-    console.log(wordSolved);
-    console.log(wordToGuess);
 
     const [wrongLetters, setWrongLetters] = useState([]);
     const [lives, setLives] = useState(6);
@@ -63,7 +61,6 @@ function Game () {
                 }
             })
             setWordToGuess([...wordToGuess]);
-            console.log('Now:', wordToGuess);
         } else {
             console.log('Wrong letter');
             setWrongLetters([...wrongLetters, l]);
@@ -75,7 +72,7 @@ function Game () {
         <main className="game">
             <section className="status">
                 <div className="lives">
-                    {new Array(6).fill('').map((item, index)=> lives > index ? <FillHeart /> : <EmptyHeart />)}
+                    {new Array(6).fill('').map((item, index)=> lives > index ? <FillHeart key={index}/> : <EmptyHeart key={index}/>)}
                 </div>
                 <div className="wrongLetters">
                     <small className="wrongLetters__tittle">WrongLetters</small> 

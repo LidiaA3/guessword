@@ -87,7 +87,7 @@ button {
     height: 4.8rem;
 
     &:hover {
-        background-color: var(--color-gray);
+        opacity: .8;
     }
 }
 
@@ -192,6 +192,7 @@ button {
     align-items: center;
     justify-content: center;
     gap: 2rem;
+    z-index: 1;
 
     &__tittle {
         font-size: 3rem;
