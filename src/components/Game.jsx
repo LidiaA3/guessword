@@ -3,19 +3,9 @@ import Keyboard from "./Keyboard";
 import FillHeart from "./icons/FillHeart";
 import EmptyHeart from "./icons/EmptyHeart";
 import Popup from "./Popup";
+import wordList from "../constants";
 
 function Game () {
-
-    const wordList = ["tomate", "mensajero", "abrochar", "paro", "plaqueta", "descubrir", "disparar", "carpa", "tigre", "significado",
-    "macarrones", "paisaje ", "muelle", "juez", "perseguir", "hermosa", "oro", "realidad", "utilidad", "escandinavo",
-    "activista", "biblioteca", "diminuto", "lavabo", "hilos", "pedal", "cerrado", "urgencia", "momia", "agujeros",
-    "trepar", "alhajas", "tartamudear", "dichoso", "congreso", "blusa", "separar", "avergonzar", "ganado", "espuma",
-    "libro", "servilleta", "camello", "mediano", "maleta", "metal", "nafta", "ruidoso", "microbio", "escuchar",
-    "traducir", "aguacero", "carruaje", "verruga", "herradura", "novio", "este", "medialuna", "duelo", "retoque",
-    "envolver", "fotocopiadora", "ecologista", "extractor", "modelar", "impresora", "africano", "departamento", "integral", "azotea",
-    "navaja", "perderse", "miedo", "amigo", "confucio", "meses", "entrar", "viajar", "aviones", "ingenuo",
-    "fideos", "amortiguar", "acuario", "eclipse", "estirar", "zapatillas", "juguetes", "lava", "metal", "colina",
-    "curva", "hechizar", "holanda", "grapadora", "placas", "muebles", "manija", "consonantes", "arpa", "conquistar"];
 
     const [word, setWord] = useState('');
     const [wordSolved, setWordSolved] = useState([]);
@@ -52,18 +42,19 @@ function Game () {
             }
             return;
         }
-        console.log('Letter pressed:', l);
-        if (wordSolved.includes(l)) {
+        console.log('Letter pressed:', l.letter);
+        l.isDisabled = true;
+        if (wordSolved.includes(l.letter)) {
             console.log('Letter is in');
             wordSolved.map((letter, index) => {
-                if(letter === l) {
-                    wordToGuess[index] = l;
+                if(letter === l.letter) {
+                    wordToGuess[index] = l.letter;
                 }
             })
             setWordToGuess([...wordToGuess]);
         } else {
             console.log('Wrong letter');
-            setWrongLetters([...wrongLetters, l]);
+            setWrongLetters([...wrongLetters, l.letter]);
             setLives(lives - 1);
         }
     }
@@ -76,11 +67,11 @@ function Game () {
                 </div>
                 <div className="wrongLetters">
                     <small className="wrongLetters__tittle">WrongLetters</small> 
-                    <p className="wrongLetters__section">{wrongLetters}</p>
+                    <p className="wrongLetters__section">{wrongLetters.join(', ')}</p>
                 </div>
             </section>
             <section className="word">
-                {wordToGuess.map((item) => <p className="word__letter">{item}</p>)}
+                {wordToGuess.map((item, index) => <p className="word__letter" key={index}>{item}</p>)}
             </section>
             {gameOver && <Popup winner={winner} word={word} />}
             <Keyboard handleLetter={handleLetter} />

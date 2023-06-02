@@ -1,15 +1,14 @@
 import Keyletter from "./Keyletter";
+import { keyboardLetters } from "../constants";
 
 function Keyboard (props) {
-
-    const keyboardLetters = [['Q','W','E','R','T','Y','U','I','O','P'], ['A','S','D','F','G','H','J','K','L'], ['Z','X','C','V','B','N','M']];
 
     return (
         <section className="keyboard">
             {keyboardLetters.map((line, i) => {
                 return <div className="keyboard__row" key={i}>
-                    {line.map(letter => {
-                        return <Keyletter text={letter} key={letter} handleClick={() => props.handleLetter(letter)} />
+                    {line.map(item => {
+                        return <Keyletter isDisabled={item.isDisabled} text={item.letter} key={item.letter} handleClick={() => props.handleLetter(item)} />
                     })}
                 </div>
             })}

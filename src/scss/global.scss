@@ -6,6 +6,7 @@
     --color-main: #7f53ac;
     --color-main-dark: #572b82;
     --color-dark: #1c1c1e;
+    --color-gray: #9c9c9c;
     --color-light: #f3f3f3;
     --color-light-op-80: #f3f3f3cc;
 
@@ -88,6 +89,13 @@ button {
 
     &:hover {
         opacity: .8;
+    }
+
+    &:disabled {
+        color: var(--color-gray);
+        border-color: var(--color-gray);
+        opacity: .5;
+        cursor: not-allowed;
     }
 }
 

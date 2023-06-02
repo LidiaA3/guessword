@@ -1,7 +1,7 @@
 function Keyletter (props) {
     return (
         <>
-            <button onClick={props.handleClick}>{props.text}</button>
+            <button onClick={props.handleClick} disabled={props.isDisabled}>{props.text}</button>
         </>
     );
 }
