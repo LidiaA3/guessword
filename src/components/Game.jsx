@@ -32,14 +32,22 @@ function Game () {
     const [gameOver, setGameOver] = useState(false);
     const [winner, setWinner] = useState('');
 
+    useEffect(() => {
+        if(lives === 0) {
+            setGameOver(true);
+            setWinner(false);
+        }
+    }, [lives]);
+
+    useEffect(() => {
+        if(wordToGuess.length && !wordToGuess.includes('_')) {
+            setGameOver(true);
+            setWinner(true);
+        }
+    }, [wordToGuess]);
+
     function handleLetter(l) {
         if (lives === 0 || !wordToGuess.includes('_')) {
-            setGameOver(true);
-            if(lives === 0) {
-                setWinner(false);
-            } else {
-                setWinner(true);
-            }
             return;
         }
         console.log('Letter pressed:', l.letter);

@@ -1,5 +1,5 @@
 const wordList = ["tomate", "mensajero", "abrochar", "paro", "plaqueta", "descubrir", "disparar", "carpa", "tigre", "significado",
-"macarrones", "paisaje ", "muelle", "juez", "perseguir", "hermosa", "oro", "realidad", "utilidad", "escandinavo",
+"macarrones", "paisaje", "muelle", "juez", "perseguir", "hermosa", "oro", "realidad", "utilidad", "escandinavo",
 "activista", "biblioteca", "diminuto", "lavabo", "hilos", "pedal", "cerrado", "urgencia", "momia", "agujeros",
 "trepar", "alhajas", "tartamudear", "dichoso", "congreso", "blusa", "separar", "avergonzar", "ganado", "espuma",
 "libro", "servilleta", "camello", "mediano", "maleta", "metal", "nafta", "ruidoso", "microbio", "escuchar",
